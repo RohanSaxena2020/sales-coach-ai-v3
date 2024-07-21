@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Header from './Header';
 import Footer from './Footer';
@@ -9,6 +10,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import LoginPage from './LoginPage';
 
 const HomePage = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [formData, setFormData] = useState({
     firstName: '',
@@ -55,7 +57,7 @@ const HomePage = () => {
         { headers: { Authorization: `Bearer ${idToken}` } }
       );
       console.log(response.data.message);
-      setSubmitted(true);
+      navigate('/thank-you', { state: { email: formData.email, phoneNumber: formData.phoneNumber } });
     } catch (error) {
       console.error("Error submitting form: ", error);
       alert("Failed to submit form!");
