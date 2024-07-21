@@ -5,12 +5,12 @@ import { getAuth } from 'firebase/auth';
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDfgguMbUwo21Znl3PntT6tU4VsID4kNlA",
-  authDomain: "sales-coach-ai.firebaseapp.com",
-  projectId: "sales-coach-ai",
-  storageBucket: "sales-coach-ai.appspot.com",
-  messagingSenderId: "863534333412",
-  appId: "1:863534333412:web:3ed869299509b794319bf1"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECTID,
+  storageBucket: process.env.FIREBASE_STORAGEBUCKET,
+  messagingSenderId: process.env.FIREBASE_MSG_SENDER_ID,
+  appId: process.env.FIREBASE_APPID
 };
 
 // Initialize Firebase
